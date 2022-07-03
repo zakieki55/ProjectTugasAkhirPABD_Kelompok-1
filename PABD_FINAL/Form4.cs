@@ -17,16 +17,17 @@ namespace PABD_FINAL
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection("Data Source=MSI;Initial Catalog = Atim_Movies;Persist Security Info = True;User ID=sa;Password=eki123");
+        SqlConnection con = new SqlConnection("Data Source=MSI;Initial Catalog=Atim;Persist Security Info=True;User ID=sa;Password=eki123");
 
         private static string GetConnectionString()
         {
-            return "Data Source=MSI;Initial Catalog = Atim_Movies;Persist Security Info = True;User ID=sa;Password=eki123";
+            return "Data Source=MSI;Initial Catalog=Atim;Persist Security Info=True;User ID=sa;Password=eki123";
         }
         private void Form4_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'atim_MoviesDataSet1.Table_Film' table. You can move, or remove it, as needed.
-            this.table_FilmTableAdapter.Fill(this.atim_MoviesDataSet1.Table_Film);
+            // TODO: This line of code loads data into the 'atimDataSet1.Film' table. You can move, or remove it, as needed.
+            this.filmTableAdapter.Fill(this.atimDataSet1.Film);
+            
 
         }
 
@@ -44,7 +45,7 @@ namespace PABD_FINAL
             String genre = txtgenre.Text;
             con.Open();
 
-            SqlCommand c = new SqlCommand("exec InsertTable_Film '" + idFilm + "', '" + judul + "', '" + genre + "'", con);
+            SqlCommand c = new SqlCommand("exec Film_insert '" + idFilm + "', '" + judul + "', '" + genre + "'", con);
             c.ExecuteNonQuery();
 
             MessageBox.Show("Berhasil Di Tambahkan");
@@ -53,7 +54,7 @@ namespace PABD_FINAL
         }
         void GetTable_Film()
         {
-            SqlCommand c = new SqlCommand("exec ListTable_Film", con);
+            SqlCommand c = new SqlCommand("exec Film_view", con);
             SqlDataAdapter sd = new SqlDataAdapter(c);
             DataTable dt1 = new DataTable();
             sd.Fill(dt1);
@@ -68,10 +69,10 @@ namespace PABD_FINAL
             String genre = txtgenre.Text;
             con.Open();
 
-            SqlCommand c = new SqlCommand("exec UpdateTable_Film '" + idFilm + "', '" + judul + "', '" + genre + "'", con);
+            SqlCommand c = new SqlCommand("exec Film_update '" + idFilm + "', '" + judul + "', '" + genre + "'", con);
             c.ExecuteNonQuery();
 
-            MessageBox.Show("Berhasil Di Tambahkan");
+            MessageBox.Show("Berhasil Di Update");
             GetTable_Film();
             con.Close();
         }
@@ -81,7 +82,7 @@ namespace PABD_FINAL
             String idFilm = txtidfilm.Text;
             con.Open();
 
-            SqlCommand c = new SqlCommand("exec DeleteTable_Film '" + idFilm + "'", con);
+            SqlCommand c = new SqlCommand("exec Film_delete '" + idFilm + "'", con);
             c.ExecuteNonQuery();
 
             MessageBox.Show("Berhasil Di Hapus");
@@ -95,14 +96,14 @@ namespace PABD_FINAL
             using (SqlConnection sourceConnection = new SqlConnection(connectionString))
             {
                 sourceConnection.Open();
-                SqlCommand commandSourceData = new SqlCommand("SELECT * FROM Table_Film", sourceConnection);
+                SqlCommand commandSourceData = new SqlCommand("SELECT * FROM Film", sourceConnection);
                 SqlDataReader reader = commandSourceData.ExecuteReader();
                 using (SqlConnection destinationConnection = new SqlConnection(connectionString))
                 {
                     destinationConnection.Open();
                     using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destinationConnection))
                     {
-                        bulkCopy.DestinationTableName = "Table_Film_Copy";
+                        bulkCopy.DestinationTableName = "Film_Copy";
 
                         try
                         {

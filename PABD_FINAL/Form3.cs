@@ -17,15 +17,16 @@ namespace PABD_FINAL
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection("Data Source=MSI;Initial Catalog = Atim_Movies;Persist Security Info = True;User ID=sa;Password=eki123");
+        SqlConnection con = new SqlConnection("Data Source=MSI;Initial Catalog=Atim;Persist Security Info=True;User ID=sa;Password=eki123");
         private static string GetConnectionString()
         {
-            return "Data Source=MSI;Initial Catalog = Atim_Movies;Persist Security Info = True;User ID=sa;Password=eki123";
+            return "Data Source=MSI;Initial Catalog=Atim;Persist Security Info=True;User ID=sa;Password=eki123";
         }
         private void Form3_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'atim_MoviesDataSet.Table_Pelanggan' table. You can move, or remove it, as needed.
-            this.table_PelangganTableAdapter.Fill(this.atim_MoviesDataSet.Table_Pelanggan);
+            // TODO: This line of code loads data into the 'atimDataSet.Customer' table. You can move, or remove it, as needed.
+            this.customerTableAdapter.Fill(this.atimDataSet.Customer);
+            
 
 
 
@@ -47,7 +48,7 @@ namespace PABD_FINAL
             String alamat = txtalamat.Text;
             con.Open();
 
-            SqlCommand c = new SqlCommand("exec InsertTable_Pelanggan '" + idCustomer + "', '" + namaPel + "', '" + notelp + "','" + alamat + "'", con);
+            SqlCommand c = new SqlCommand("exec Customer_insert '" + idCustomer + "', '" + namaPel + "', '" + notelp + "','" + alamat + "'", con);
             c.ExecuteNonQuery();
 
             MessageBox.Show("Berhasil Di Tambahkan");
@@ -56,7 +57,7 @@ namespace PABD_FINAL
         }
         void GetTable_Pelanggan()
         {
-            SqlCommand c = new SqlCommand("exec ListTable_Pelanggan", con);
+            SqlCommand c = new SqlCommand("exec Customer_view", con);
             SqlDataAdapter sd = new SqlDataAdapter(c);
             DataTable dt1 = new DataTable();
             sd.Fill(dt1);
@@ -72,7 +73,7 @@ namespace PABD_FINAL
             String alamat = txtalamat.Text;
             con.Open();
 
-            SqlCommand c = new SqlCommand("exec UpdateTable_Pelanggan '" + idCustomer + "', '" + namaPel + "', '" + notelp + "','" + alamat + "'", con);
+            SqlCommand c = new SqlCommand("exec Customer_update '" + idCustomer + "', '" + namaPel + "', '" + notelp + "','" + alamat + "'", con);
             c.ExecuteNonQuery();
 
             MessageBox.Show("Berhasil Di Update");
@@ -86,7 +87,7 @@ namespace PABD_FINAL
             String idCustomer = txtidc.Text;
             con.Open();
 
-            SqlCommand c = new SqlCommand("exec DeleteTable_Pelanggan '" + idCustomer + "'", con);
+            SqlCommand c = new SqlCommand("exec Customer_delete '" + idCustomer + "'", con);
             c.ExecuteNonQuery();
 
             MessageBox.Show("Berhasil Di Hapus");
@@ -105,14 +106,14 @@ namespace PABD_FINAL
             using (SqlConnection sourceConnection = new SqlConnection(connectionString))
             {
                 sourceConnection.Open();
-                SqlCommand commandSourceData = new SqlCommand("SELECT * FROM Table_Pelanggan", sourceConnection);
+                SqlCommand commandSourceData = new SqlCommand("SELECT * FROM Customer", sourceConnection);
                 SqlDataReader reader = commandSourceData.ExecuteReader();
                 using(SqlConnection destinationConnection = new SqlConnection(connectionString))
                 {
                     destinationConnection.Open();
                     using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destinationConnection))
                     {
-                        bulkCopy.DestinationTableName = "Table_Pelanggan_Copy";
+                        bulkCopy.DestinationTableName = "Customer_Copy";
 
                         try
                         {

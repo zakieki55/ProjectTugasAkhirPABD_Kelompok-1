@@ -61,6 +61,7 @@
             this.txtbox2.Name = "txtbox2";
             this.txtbox2.Size = new System.Drawing.Size(246, 28);
             this.txtbox2.TabIndex = 15;
+            this.txtbox2.UseSystemPasswordChar = true;
             // 
             // txtbox1
             // 

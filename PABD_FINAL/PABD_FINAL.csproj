@@ -69,6 +69,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtimDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AtimDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AtimDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AtimDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AtimDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AtimDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AtimDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AtimDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AtimDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AtimDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Atim_MoviesDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,6 +161,12 @@
     <Compile Include="Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form7.Designer.cs">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -157,6 +188,9 @@
     <EmbeddedResource Include="Form6.resx">
       <DependentUpon>Form6.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form7.resx">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -167,6 +201,61 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="AtimDataSet.xsc">
+      <DependentUpon>AtimDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AtimDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AtimDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AtimDataSet.xss">
+      <DependentUpon>AtimDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AtimDataSet1.xsc">
+      <DependentUpon>AtimDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AtimDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AtimDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AtimDataSet1.xss">
+      <DependentUpon>AtimDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AtimDataSet2.xsc">
+      <DependentUpon>AtimDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="AtimDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AtimDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AtimDataSet2.xss">
+      <DependentUpon>AtimDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="AtimDataSet3.xsc">
+      <DependentUpon>AtimDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="AtimDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AtimDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AtimDataSet3.xss">
+      <DependentUpon>AtimDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="AtimDataSet4.xsc">
+      <DependentUpon>AtimDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="AtimDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AtimDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AtimDataSet4.xss">
+      <DependentUpon>AtimDataSet4.xsd</DependentUpon>
+    </None>
     <None Include="Atim_MoviesDataSet.xsc">
       <DependentUpon>Atim_MoviesDataSet.xsd</DependentUpon>
     </None>

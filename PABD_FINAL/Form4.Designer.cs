@@ -38,9 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idFilmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.judulDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableFilmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.atim_MoviesDataSet1 = new PABD_FINAL.Atim_MoviesDataSet1();
             this.txtidfilm = new System.Windows.Forms.TextBox();
@@ -48,9 +45,17 @@
             this.txtgenre = new System.Windows.Forms.TextBox();
             this.table_FilmTableAdapter = new PABD_FINAL.Atim_MoviesDataSet1TableAdapters.Table_FilmTableAdapter();
             this.cmdCopy = new System.Windows.Forms.Button();
+            this.atimDataSet1 = new PABD_FINAL.AtimDataSet1();
+            this.filmBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.filmTableAdapter = new PABD_FINAL.AtimDataSet1TableAdapters.FilmTableAdapter();
+            this.idFilmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namafilmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableFilmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atim_MoviesDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atimDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btn8
@@ -151,31 +156,13 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idFilmDataGridViewTextBoxColumn,
-            this.judulDataGridViewTextBoxColumn,
+            this.namafilmDataGridViewTextBoxColumn,
             this.genreDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tableFilmBindingSource;
+            this.dataGridView1.DataSource = this.filmBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(101, 226);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(624, 198);
             this.dataGridView1.TabIndex = 58;
-            // 
-            // idFilmDataGridViewTextBoxColumn
-            // 
-            this.idFilmDataGridViewTextBoxColumn.DataPropertyName = "Id_Film";
-            this.idFilmDataGridViewTextBoxColumn.HeaderText = "Id_Film";
-            this.idFilmDataGridViewTextBoxColumn.Name = "idFilmDataGridViewTextBoxColumn";
-            // 
-            // judulDataGridViewTextBoxColumn
-            // 
-            this.judulDataGridViewTextBoxColumn.DataPropertyName = "Judul";
-            this.judulDataGridViewTextBoxColumn.HeaderText = "Judul";
-            this.judulDataGridViewTextBoxColumn.Name = "judulDataGridViewTextBoxColumn";
-            // 
-            // genreDataGridViewTextBoxColumn
-            // 
-            this.genreDataGridViewTextBoxColumn.DataPropertyName = "Genre";
-            this.genreDataGridViewTextBoxColumn.HeaderText = "Genre";
-            this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
             // 
             // tableFilmBindingSource
             // 
@@ -222,6 +209,38 @@
             this.cmdCopy.UseVisualStyleBackColor = true;
             this.cmdCopy.Click += new System.EventHandler(this.cmdCopy_Click);
             // 
+            // atimDataSet1
+            // 
+            this.atimDataSet1.DataSetName = "AtimDataSet1";
+            this.atimDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // filmBindingSource
+            // 
+            this.filmBindingSource.DataMember = "Film";
+            this.filmBindingSource.DataSource = this.atimDataSet1;
+            // 
+            // filmTableAdapter
+            // 
+            this.filmTableAdapter.ClearBeforeFill = true;
+            // 
+            // idFilmDataGridViewTextBoxColumn
+            // 
+            this.idFilmDataGridViewTextBoxColumn.DataPropertyName = "Id_Film";
+            this.idFilmDataGridViewTextBoxColumn.HeaderText = "Id_Film";
+            this.idFilmDataGridViewTextBoxColumn.Name = "idFilmDataGridViewTextBoxColumn";
+            // 
+            // namafilmDataGridViewTextBoxColumn
+            // 
+            this.namafilmDataGridViewTextBoxColumn.DataPropertyName = "Nama_film";
+            this.namafilmDataGridViewTextBoxColumn.HeaderText = "Nama_film";
+            this.namafilmDataGridViewTextBoxColumn.Name = "namafilmDataGridViewTextBoxColumn";
+            // 
+            // genreDataGridViewTextBoxColumn
+            // 
+            this.genreDataGridViewTextBoxColumn.DataPropertyName = "Genre";
+            this.genreDataGridViewTextBoxColumn.HeaderText = "Genre";
+            this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +266,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableFilmBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atim_MoviesDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atimDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,9 +290,12 @@
         private Atim_MoviesDataSet1 atim_MoviesDataSet1;
         private System.Windows.Forms.BindingSource tableFilmBindingSource;
         private Atim_MoviesDataSet1TableAdapters.Table_FilmTableAdapter table_FilmTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFilmDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn judulDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button cmdCopy;
+        private AtimDataSet1 atimDataSet1;
+        private System.Windows.Forms.BindingSource filmBindingSource;
+        private AtimDataSet1TableAdapters.FilmTableAdapter filmTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFilmDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namafilmDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
     }
 }

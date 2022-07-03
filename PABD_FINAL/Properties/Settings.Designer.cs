@@ -32,5 +32,16 @@ namespace PABD_FINAL.Properties {
                 return ((string)(this["Atim_MoviesConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI;Initial Catalog=Atim;Persist Security Info=True;User ID=sa;Passwo" +
+            "rd=eki123")]
+        public string AtimConnectionString {
+            get {
+                return ((string)(this["AtimConnectionString"]));
+            }
+        }
     }
 }

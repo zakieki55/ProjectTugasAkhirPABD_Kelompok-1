@@ -14,7 +14,7 @@ namespace PABD_FINAL
 {
     public partial class Form6 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=MSI;Initial Catalog = Atim_Movies;Persist Security Info = True;User ID=sa;Password=eki123");
+        SqlConnection con = new SqlConnection("Data Source=MSI;Initial Catalog=Atim;Persist Security Info=True;User ID=sa;Password=eki123");
         public Form6()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace PABD_FINAL
         private void Form6_Load(object sender, EventArgs e)
         {
             con.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Table_Transaksi", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Transaksi", con);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             dataGridView1.DataSource = dt;

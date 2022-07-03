@@ -39,10 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idPelangganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namaPelangganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noTlpnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alamatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tablePelangganBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.atim_MoviesDataSet = new PABD_FINAL.Atim_MoviesDataSet();
             this.txtidc = new System.Windows.Forms.TextBox();
@@ -51,9 +47,18 @@
             this.txtnama = new System.Windows.Forms.TextBox();
             this.table_PelangganTableAdapter = new PABD_FINAL.Atim_MoviesDataSetTableAdapters.Table_PelangganTableAdapter();
             this.cmdCopy = new System.Windows.Forms.Button();
+            this.atimDataSet = new PABD_FINAL.AtimDataSet();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.customerTableAdapter = new PABD_FINAL.AtimDataSetTableAdapters.CustomerTableAdapter();
+            this.idCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namacustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alamatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notelpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePelangganBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atim_MoviesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atimDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button4
@@ -109,7 +114,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(149, 208);
+            this.label5.Location = new System.Drawing.Point(149, 175);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 20);
@@ -121,7 +126,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(149, 169);
+            this.label4.Location = new System.Drawing.Point(150, 209);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 20);
@@ -169,40 +174,16 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idPelangganDataGridViewTextBoxColumn,
-            this.namaPelangganDataGridViewTextBoxColumn,
-            this.noTlpnDataGridViewTextBoxColumn,
-            this.alamatDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tablePelangganBindingSource;
+            this.idCustomerDataGridViewTextBoxColumn,
+            this.namacustomerDataGridViewTextBoxColumn,
+            this.alamatDataGridViewTextBoxColumn,
+            this.notelpDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.customerBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(103, 241);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(620, 197);
             this.dataGridView1.TabIndex = 54;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // idPelangganDataGridViewTextBoxColumn
-            // 
-            this.idPelangganDataGridViewTextBoxColumn.DataPropertyName = "Id_Pelanggan";
-            this.idPelangganDataGridViewTextBoxColumn.HeaderText = "Id_Pelanggan";
-            this.idPelangganDataGridViewTextBoxColumn.Name = "idPelangganDataGridViewTextBoxColumn";
-            // 
-            // namaPelangganDataGridViewTextBoxColumn
-            // 
-            this.namaPelangganDataGridViewTextBoxColumn.DataPropertyName = "Nama_Pelanggan";
-            this.namaPelangganDataGridViewTextBoxColumn.HeaderText = "Nama_Pelanggan";
-            this.namaPelangganDataGridViewTextBoxColumn.Name = "namaPelangganDataGridViewTextBoxColumn";
-            // 
-            // noTlpnDataGridViewTextBoxColumn
-            // 
-            this.noTlpnDataGridViewTextBoxColumn.DataPropertyName = "No_Tlpn";
-            this.noTlpnDataGridViewTextBoxColumn.HeaderText = "No_Tlpn";
-            this.noTlpnDataGridViewTextBoxColumn.Name = "noTlpnDataGridViewTextBoxColumn";
-            // 
-            // alamatDataGridViewTextBoxColumn
-            // 
-            this.alamatDataGridViewTextBoxColumn.DataPropertyName = "Alamat";
-            this.alamatDataGridViewTextBoxColumn.HeaderText = "Alamat";
-            this.alamatDataGridViewTextBoxColumn.Name = "alamatDataGridViewTextBoxColumn";
             // 
             // tablePelangganBindingSource
             // 
@@ -223,14 +204,14 @@
             // 
             // txtalamat
             // 
-            this.txtalamat.Location = new System.Drawing.Point(286, 205);
+            this.txtalamat.Location = new System.Drawing.Point(286, 172);
             this.txtalamat.Name = "txtalamat";
             this.txtalamat.Size = new System.Drawing.Size(221, 20);
             this.txtalamat.TabIndex = 56;
             // 
             // txtnotelp
             // 
-            this.txtnotelp.Location = new System.Drawing.Point(286, 171);
+            this.txtnotelp.Location = new System.Drawing.Point(287, 211);
             this.txtnotelp.Name = "txtnotelp";
             this.txtnotelp.Size = new System.Drawing.Size(221, 20);
             this.txtnotelp.TabIndex = 57;
@@ -255,6 +236,44 @@
             this.cmdCopy.Text = "Copy Data";
             this.cmdCopy.UseVisualStyleBackColor = true;
             this.cmdCopy.Click += new System.EventHandler(this.cmdCopy_Click);
+            // 
+            // atimDataSet
+            // 
+            this.atimDataSet.DataSetName = "AtimDataSet";
+            this.atimDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataMember = "Customer";
+            this.customerBindingSource.DataSource = this.atimDataSet;
+            // 
+            // customerTableAdapter
+            // 
+            this.customerTableAdapter.ClearBeforeFill = true;
+            // 
+            // idCustomerDataGridViewTextBoxColumn
+            // 
+            this.idCustomerDataGridViewTextBoxColumn.DataPropertyName = "Id_Customer";
+            this.idCustomerDataGridViewTextBoxColumn.HeaderText = "Id_Customer";
+            this.idCustomerDataGridViewTextBoxColumn.Name = "idCustomerDataGridViewTextBoxColumn";
+            // 
+            // namacustomerDataGridViewTextBoxColumn
+            // 
+            this.namacustomerDataGridViewTextBoxColumn.DataPropertyName = "Nama_customer";
+            this.namacustomerDataGridViewTextBoxColumn.HeaderText = "Nama_customer";
+            this.namacustomerDataGridViewTextBoxColumn.Name = "namacustomerDataGridViewTextBoxColumn";
+            // 
+            // alamatDataGridViewTextBoxColumn
+            // 
+            this.alamatDataGridViewTextBoxColumn.DataPropertyName = "Alamat";
+            this.alamatDataGridViewTextBoxColumn.HeaderText = "Alamat";
+            this.alamatDataGridViewTextBoxColumn.Name = "alamatDataGridViewTextBoxColumn";
+            // 
+            // notelpDataGridViewTextBoxColumn
+            // 
+            this.notelpDataGridViewTextBoxColumn.DataPropertyName = "No_telp";
+            this.notelpDataGridViewTextBoxColumn.HeaderText = "No_telp";
+            this.notelpDataGridViewTextBoxColumn.Name = "notelpDataGridViewTextBoxColumn";
             // 
             // Form3
             // 
@@ -283,6 +302,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePelangganBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atim_MoviesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atimDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,10 +328,13 @@
         private Atim_MoviesDataSet atim_MoviesDataSet;
         private System.Windows.Forms.BindingSource tablePelangganBindingSource;
         private Atim_MoviesDataSetTableAdapters.Table_PelangganTableAdapter table_PelangganTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idPelangganDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namaPelangganDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noTlpnDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn alamatDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button cmdCopy;
+        private AtimDataSet atimDataSet;
+        private System.Windows.Forms.BindingSource customerBindingSource;
+        private AtimDataSetTableAdapters.CustomerTableAdapter customerTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCustomerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namacustomerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alamatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notelpDataGridViewTextBoxColumn;
     }
 }

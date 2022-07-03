@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace PABD_FINAL
 {
-    public partial class Form5 : Form
+    public partial class Form7 : Form
     {
-        public Form5()
+        public Form7()
         {
             InitializeComponent();
         }
@@ -22,12 +22,41 @@ namespace PABD_FINAL
         {
             return "Data Source=MSI;Initial Catalog=Atim;Persist Security Info=True;User ID=sa;Password=eki123";
         }
-        private void Form5_Load(object sender, EventArgs e)
+
+        private void label3_Click(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'atimDataSet4.Transaksi' table. You can move, or remove it, as needed.
-            this.transaksiTableAdapter1.Fill(this.atimDataSet4.Transaksi);
-           
-            
+
+        }
+
+        private void Form7_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'atimDataSet3.Peminjaman' table. You can move, or remove it, as needed.
+            this.peminjamanTableAdapter.Fill(this.atimDataSet3.Peminjaman);
+
+        }
+
+        private void btn9_Click(object sender, EventArgs e)
+        {
+            String idpeminjaman = txtidPeminjaman.Text;
+            String idcustomer = txtidcst.Text;
+            String idFilm = txtidfilm.Text;
+            String totHarga = txttotharga.Text;
+            con.Open();
+
+            SqlCommand c = new SqlCommand("exec Peminjaman_insert '" + idpeminjaman + "', '" + idcustomer + "', '" + idFilm + "', '" + int.Parse(qty.Text) + "', '" + totHarga + "'", con);
+            c.ExecuteNonQuery();
+
+            MessageBox.Show("Berhasil Di Tambahkan");
+            GetTable_peminjaman();
+            con.Close();
+        }
+        void GetTable_peminjaman()
+        {
+            SqlCommand c = new SqlCommand("exec Peminjaman_view", con);
+            SqlDataAdapter sd = new SqlDataAdapter(c);
+            DataTable dt1 = new DataTable();
+            sd.Fill(dt1);
+            dataGridView1.DataSource = dt1;
 
         }
 
@@ -38,65 +67,32 @@ namespace PABD_FINAL
             this.Hide();
         }
 
-        
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btn9_Click(object sender, EventArgs e)
-        {
-            String idtrx = txtidtrx.Text;
-            String idpeminjaman = txtidpeminjaman.Text;
-            String totalHarga = txttotharga.Text;
-            String tanggalsewa = txttanggalsewa.Text;
-            String tglKembali = txttglkembali.Text;
-            con.Open();
-
-            SqlCommand c = new SqlCommand("exec Transaksi_insert '" + idtrx + "', '" + idpeminjaman + "', '" + totalHarga + "','" + tanggalsewa + "','" + tglKembali + "'", con);
-            c.ExecuteNonQuery();
-
-            MessageBox.Show("Berhasil Di Tambahkan");
-            GetTable_trx();
-            con.Close();
-        }
-        void GetTable_trx()
-        {
-            SqlCommand c = new SqlCommand("exec Transaksi_view", con);
-            SqlDataAdapter sd = new SqlDataAdapter(c);
-            DataTable dt1 = new DataTable();
-            sd.Fill(dt1);
-            dataGridView1.DataSource = dt1;
-
-        }
-
         private void btn11_Click(object sender, EventArgs e)
         {
-            String idtrx = txtidtrx.Text;
-            String idpeminjaman = txtidpeminjaman.Text;
-            String totalHarga = txttotharga.Text;
-            String tanggalsewa = txttanggalsewa.Text;
-            String tglKembali = txttglkembali.Text;
+            String idpeminjaman = txtidPeminjaman.Text;
+            String idcustomer = txtidcst.Text;
+            String idFilm = txtidfilm.Text;
+            String totHarga = txttotharga.Text;
             con.Open();
 
-            SqlCommand c = new SqlCommand("exec Transaksi_update '" + idtrx + "', '" + idpeminjaman + "', '" + totalHarga + "','" + tanggalsewa + "','" + tglKembali + "'", con);
+            SqlCommand c = new SqlCommand("exec Peminjaman_update '" + idpeminjaman + "', '" + idcustomer + "', '" + idFilm + "', '" + int.Parse(qty.Text) + "'", con);
             c.ExecuteNonQuery();
 
             MessageBox.Show("Berhasil Di Update");
-            GetTable_trx();
+            GetTable_peminjaman();
             con.Close();
         }
+
         private void btn12_Click(object sender, EventArgs e)
         {
-            String idtrx = txtidtrx.Text;
+            String idpeminjaman = txtidPeminjaman.Text;
             con.Open();
 
-            SqlCommand c = new SqlCommand("exec Transaksi_delete '" + idtrx + "'", con);
+            SqlCommand c = new SqlCommand("exec Film_delete '" + idpeminjaman + "'", con);
             c.ExecuteNonQuery();
 
-            MessageBox.Show("Berhasil Di Delete");
-            GetTable_trx();
+            MessageBox.Show("Berhasil Di Hapus");
+            GetTable_peminjaman();
             con.Close();
         }
 
@@ -106,14 +102,14 @@ namespace PABD_FINAL
             using (SqlConnection sourceConnection = new SqlConnection(connectionString))
             {
                 sourceConnection.Open();
-                SqlCommand commandSourceData = new SqlCommand("SELECT * FROM Transaksi", sourceConnection);
+                SqlCommand commandSourceData = new SqlCommand("SELECT * FROM Peminjaman", sourceConnection);
                 SqlDataReader reader = commandSourceData.ExecuteReader();
                 using (SqlConnection destinationConnection = new SqlConnection(connectionString))
                 {
                     destinationConnection.Open();
                     using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destinationConnection))
                     {
-                        bulkCopy.DestinationTableName = "Transaksi_Copy";
+                        bulkCopy.DestinationTableName = "Peminjaman_Copy";
 
                         try
                         {
@@ -131,13 +127,6 @@ namespace PABD_FINAL
                 }
             }
             MessageBox.Show("Data Telah Di Copy");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form6 report = new Form6();
-            report.Show();
-            this.Hide();
         }
     }
 }

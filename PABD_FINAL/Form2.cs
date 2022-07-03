@@ -44,5 +44,12 @@ namespace PABD_FINAL
             logout.Show();
             this.Hide();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form7 peminjaman = new Form7();
+            peminjaman.Show();
+            this.Hide();
+        }
     }
 }

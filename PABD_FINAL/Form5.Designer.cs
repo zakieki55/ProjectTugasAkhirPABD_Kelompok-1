@@ -40,30 +40,40 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idTransaksiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idPelangganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idFilmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tglSewaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.biayaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableTransaksiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.atim_MoviesDataSet2 = new PABD_FINAL.Atim_MoviesDataSet2();
             this.txtidtrx = new System.Windows.Forms.TextBox();
-            this.txtidcst = new System.Windows.Forms.TextBox();
-            this.txtidfilm = new System.Windows.Forms.TextBox();
-            this.txttanggal = new System.Windows.Forms.TextBox();
-            this.txtbiaya = new System.Windows.Forms.TextBox();
-            this.table_TransaksiTableAdapter = new PABD_FINAL.Atim_MoviesDataSet2TableAdapters.Table_TransaksiTableAdapter();
+            this.txtidpeminjaman = new System.Windows.Forms.TextBox();
+            this.txttotharga = new System.Windows.Forms.TextBox();
+            this.txttanggalsewa = new System.Windows.Forms.TextBox();
+            this.txttglkembali = new System.Windows.Forms.TextBox();
             this.cmdCopy = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.tableTransaksiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.atim_MoviesDataSet2 = new PABD_FINAL.Atim_MoviesDataSet2();
+            this.table_TransaksiTableAdapter = new PABD_FINAL.Atim_MoviesDataSet2TableAdapters.Table_TransaksiTableAdapter();
+            this.atimDataSet2 = new PABD_FINAL.AtimDataSet2();
+            this.transaksiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transaksiTableAdapter = new PABD_FINAL.AtimDataSet2TableAdapters.TransaksiTableAdapter();
+            this.idtransaksiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPeminjamanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalhargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tanggalsewaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tanggalkembaliDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.atimDataSet4 = new PABD_FINAL.AtimDataSet4();
+            this.transaksiBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.transaksiTableAdapter1 = new PABD_FINAL.AtimDataSet4TableAdapters.TransaksiTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableTransaksiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atim_MoviesDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atimDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transaksiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atimDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transaksiBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn12
             // 
             this.btn12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn12.Location = new System.Drawing.Point(532, 215);
+            this.btn12.Location = new System.Drawing.Point(529, 194);
             this.btn12.Margin = new System.Windows.Forms.Padding(2);
             this.btn12.Name = "btn12";
             this.btn12.Size = new System.Drawing.Size(118, 32);
@@ -75,7 +85,7 @@
             // btn11
             // 
             this.btn11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn11.Location = new System.Drawing.Point(532, 170);
+            this.btn11.Location = new System.Drawing.Point(529, 149);
             this.btn11.Margin = new System.Windows.Forms.Padding(2);
             this.btn11.Name = "btn11";
             this.btn11.Size = new System.Drawing.Size(118, 35);
@@ -87,7 +97,7 @@
             // btn9
             // 
             this.btn9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn9.Location = new System.Drawing.Point(532, 123);
+            this.btn9.Location = new System.Drawing.Point(529, 102);
             this.btn9.Margin = new System.Windows.Forms.Padding(2);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(118, 32);
@@ -99,7 +109,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(172, 31);
+            this.button4.Location = new System.Drawing.Point(40, 32);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(31, 28);
@@ -113,19 +123,19 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(172, 234);
+            this.label6.Location = new System.Drawing.Point(169, 213);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 20);
+            this.label6.Size = new System.Drawing.Size(126, 20);
             this.label6.TabIndex = 56;
-            this.label6.Text = "Biaya";
+            this.label6.Text = "Tanggal Kembali";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(172, 196);
+            this.label5.Location = new System.Drawing.Point(169, 175);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 20);
@@ -137,19 +147,19 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(172, 159);
+            this.label4.Location = new System.Drawing.Point(169, 138);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 20);
+            this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 54;
-            this.label4.Text = "ID Film";
+            this.label4.Text = "Total Harga";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(172, 85);
+            this.label3.Location = new System.Drawing.Point(169, 64);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 20);
@@ -161,18 +171,18 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(172, 123);
+            this.label2.Location = new System.Drawing.Point(169, 102);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 20);
+            this.label2.Size = new System.Drawing.Size(117, 20);
             this.label2.TabIndex = 52;
-            this.label2.Text = "ID Customer";
+            this.label2.Text = "ID Peminjaman";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(209, 40);
+            this.label1.Location = new System.Drawing.Point(77, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
@@ -185,96 +195,52 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idTransaksiDataGridViewTextBoxColumn,
-            this.idPelangganDataGridViewTextBoxColumn,
-            this.idFilmDataGridViewTextBoxColumn,
-            this.tglSewaDataGridViewTextBoxColumn,
-            this.biayaDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tableTransaksiBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(130, 271);
+            this.idtransaksiDataGridViewTextBoxColumn,
+            this.idPeminjamanDataGridViewTextBoxColumn,
+            this.totalhargaDataGridViewTextBoxColumn,
+            this.tanggalsewaDataGridViewTextBoxColumn,
+            this.tanggalkembaliDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.transaksiBindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(130, 258);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(576, 167);
             this.dataGridView1.TabIndex = 61;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // idTransaksiDataGridViewTextBoxColumn
-            // 
-            this.idTransaksiDataGridViewTextBoxColumn.DataPropertyName = "Id_Transaksi";
-            this.idTransaksiDataGridViewTextBoxColumn.HeaderText = "Id_Transaksi";
-            this.idTransaksiDataGridViewTextBoxColumn.Name = "idTransaksiDataGridViewTextBoxColumn";
-            // 
-            // idPelangganDataGridViewTextBoxColumn
-            // 
-            this.idPelangganDataGridViewTextBoxColumn.DataPropertyName = "Id_Pelanggan";
-            this.idPelangganDataGridViewTextBoxColumn.HeaderText = "Id_Pelanggan";
-            this.idPelangganDataGridViewTextBoxColumn.Name = "idPelangganDataGridViewTextBoxColumn";
-            // 
-            // idFilmDataGridViewTextBoxColumn
-            // 
-            this.idFilmDataGridViewTextBoxColumn.DataPropertyName = "Id_Film";
-            this.idFilmDataGridViewTextBoxColumn.HeaderText = "Id_Film";
-            this.idFilmDataGridViewTextBoxColumn.Name = "idFilmDataGridViewTextBoxColumn";
-            // 
-            // tglSewaDataGridViewTextBoxColumn
-            // 
-            this.tglSewaDataGridViewTextBoxColumn.DataPropertyName = "Tgl_Sewa";
-            this.tglSewaDataGridViewTextBoxColumn.HeaderText = "Tgl_Sewa";
-            this.tglSewaDataGridViewTextBoxColumn.Name = "tglSewaDataGridViewTextBoxColumn";
-            // 
-            // biayaDataGridViewTextBoxColumn
-            // 
-            this.biayaDataGridViewTextBoxColumn.DataPropertyName = "Biaya";
-            this.biayaDataGridViewTextBoxColumn.HeaderText = "Biaya";
-            this.biayaDataGridViewTextBoxColumn.Name = "biayaDataGridViewTextBoxColumn";
-            // 
-            // tableTransaksiBindingSource
-            // 
-            this.tableTransaksiBindingSource.DataMember = "Table_Transaksi";
-            this.tableTransaksiBindingSource.DataSource = this.atim_MoviesDataSet2;
-            // 
-            // atim_MoviesDataSet2
-            // 
-            this.atim_MoviesDataSet2.DataSetName = "Atim_MoviesDataSet2";
-            this.atim_MoviesDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // txtidtrx
             // 
-            this.txtidtrx.Location = new System.Drawing.Point(297, 84);
+            this.txtidtrx.Location = new System.Drawing.Point(294, 63);
             this.txtidtrx.Name = "txtidtrx";
             this.txtidtrx.Size = new System.Drawing.Size(219, 20);
             this.txtidtrx.TabIndex = 62;
             // 
-            // txtidcst
+            // txtidpeminjaman
             // 
-            this.txtidcst.Location = new System.Drawing.Point(297, 123);
-            this.txtidcst.Name = "txtidcst";
-            this.txtidcst.Size = new System.Drawing.Size(219, 20);
-            this.txtidcst.TabIndex = 63;
+            this.txtidpeminjaman.Location = new System.Drawing.Point(294, 102);
+            this.txtidpeminjaman.Name = "txtidpeminjaman";
+            this.txtidpeminjaman.Size = new System.Drawing.Size(219, 20);
+            this.txtidpeminjaman.TabIndex = 63;
             // 
-            // txtidfilm
+            // txttotharga
             // 
-            this.txtidfilm.Location = new System.Drawing.Point(297, 159);
-            this.txtidfilm.Name = "txtidfilm";
-            this.txtidfilm.Size = new System.Drawing.Size(219, 20);
-            this.txtidfilm.TabIndex = 64;
+            this.txttotharga.Location = new System.Drawing.Point(294, 138);
+            this.txttotharga.Name = "txttotharga";
+            this.txttotharga.Size = new System.Drawing.Size(219, 20);
+            this.txttotharga.TabIndex = 64;
             // 
-            // txttanggal
+            // txttanggalsewa
             // 
-            this.txttanggal.Location = new System.Drawing.Point(297, 196);
-            this.txttanggal.Name = "txttanggal";
-            this.txttanggal.Size = new System.Drawing.Size(219, 20);
-            this.txttanggal.TabIndex = 65;
+            this.txttanggalsewa.Location = new System.Drawing.Point(294, 175);
+            this.txttanggalsewa.Name = "txttanggalsewa";
+            this.txttanggalsewa.Size = new System.Drawing.Size(219, 20);
+            this.txttanggalsewa.TabIndex = 65;
             // 
-            // txtbiaya
+            // txttglkembali
             // 
-            this.txtbiaya.Location = new System.Drawing.Point(297, 234);
-            this.txtbiaya.Name = "txtbiaya";
-            this.txtbiaya.Size = new System.Drawing.Size(219, 20);
-            this.txtbiaya.TabIndex = 66;
-            // 
-            // table_TransaksiTableAdapter
-            // 
-            this.table_TransaksiTableAdapter.ClearBeforeFill = true;
+            this.txttglkembali.Location = new System.Drawing.Point(294, 213);
+            this.txttglkembali.Name = "txttglkembali";
+            this.txttglkembali.Size = new System.Drawing.Size(219, 20);
+            this.txttglkembali.TabIndex = 66;
             // 
             // cmdCopy
             // 
@@ -296,6 +262,78 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tableTransaksiBindingSource
+            // 
+            this.tableTransaksiBindingSource.DataMember = "Table_Transaksi";
+            this.tableTransaksiBindingSource.DataSource = this.atim_MoviesDataSet2;
+            // 
+            // atim_MoviesDataSet2
+            // 
+            this.atim_MoviesDataSet2.DataSetName = "Atim_MoviesDataSet2";
+            this.atim_MoviesDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // table_TransaksiTableAdapter
+            // 
+            this.table_TransaksiTableAdapter.ClearBeforeFill = true;
+            // 
+            // atimDataSet2
+            // 
+            this.atimDataSet2.DataSetName = "AtimDataSet2";
+            this.atimDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // transaksiBindingSource
+            // 
+            this.transaksiBindingSource.DataMember = "Transaksi";
+            this.transaksiBindingSource.DataSource = this.atimDataSet2;
+            // 
+            // transaksiTableAdapter
+            // 
+            this.transaksiTableAdapter.ClearBeforeFill = true;
+            // 
+            // idtransaksiDataGridViewTextBoxColumn
+            // 
+            this.idtransaksiDataGridViewTextBoxColumn.DataPropertyName = "Id_transaksi";
+            this.idtransaksiDataGridViewTextBoxColumn.HeaderText = "Id_transaksi";
+            this.idtransaksiDataGridViewTextBoxColumn.Name = "idtransaksiDataGridViewTextBoxColumn";
+            // 
+            // idPeminjamanDataGridViewTextBoxColumn
+            // 
+            this.idPeminjamanDataGridViewTextBoxColumn.DataPropertyName = "Id_Peminjaman";
+            this.idPeminjamanDataGridViewTextBoxColumn.HeaderText = "Id_Peminjaman";
+            this.idPeminjamanDataGridViewTextBoxColumn.Name = "idPeminjamanDataGridViewTextBoxColumn";
+            // 
+            // totalhargaDataGridViewTextBoxColumn
+            // 
+            this.totalhargaDataGridViewTextBoxColumn.DataPropertyName = "Total_harga";
+            this.totalhargaDataGridViewTextBoxColumn.HeaderText = "Total_harga";
+            this.totalhargaDataGridViewTextBoxColumn.Name = "totalhargaDataGridViewTextBoxColumn";
+            // 
+            // tanggalsewaDataGridViewTextBoxColumn
+            // 
+            this.tanggalsewaDataGridViewTextBoxColumn.DataPropertyName = "Tanggal_sewa";
+            this.tanggalsewaDataGridViewTextBoxColumn.HeaderText = "Tanggal_sewa";
+            this.tanggalsewaDataGridViewTextBoxColumn.Name = "tanggalsewaDataGridViewTextBoxColumn";
+            // 
+            // tanggalkembaliDataGridViewTextBoxColumn
+            // 
+            this.tanggalkembaliDataGridViewTextBoxColumn.DataPropertyName = "Tanggal_kembali";
+            this.tanggalkembaliDataGridViewTextBoxColumn.HeaderText = "Tanggal_kembali";
+            this.tanggalkembaliDataGridViewTextBoxColumn.Name = "tanggalkembaliDataGridViewTextBoxColumn";
+            // 
+            // atimDataSet4
+            // 
+            this.atimDataSet4.DataSetName = "AtimDataSet4";
+            this.atimDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // transaksiBindingSource1
+            // 
+            this.transaksiBindingSource1.DataMember = "Transaksi";
+            this.transaksiBindingSource1.DataSource = this.atimDataSet4;
+            // 
+            // transaksiTableAdapter1
+            // 
+            this.transaksiTableAdapter1.ClearBeforeFill = true;
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,10 +342,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmdCopy);
-            this.Controls.Add(this.txtbiaya);
-            this.Controls.Add(this.txttanggal);
-            this.Controls.Add(this.txtidfilm);
-            this.Controls.Add(this.txtidcst);
+            this.Controls.Add(this.txttglkembali);
+            this.Controls.Add(this.txttanggalsewa);
+            this.Controls.Add(this.txttotharga);
+            this.Controls.Add(this.txtidpeminjaman);
             this.Controls.Add(this.txtidtrx);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn12);
@@ -326,6 +364,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableTransaksiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atim_MoviesDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atimDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transaksiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atimDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transaksiBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,19 +387,25 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtidtrx;
-        private System.Windows.Forms.TextBox txtidcst;
-        private System.Windows.Forms.TextBox txtidfilm;
-        private System.Windows.Forms.TextBox txttanggal;
-        private System.Windows.Forms.TextBox txtbiaya;
+        private System.Windows.Forms.TextBox txtidpeminjaman;
+        private System.Windows.Forms.TextBox txttotharga;
+        private System.Windows.Forms.TextBox txttanggalsewa;
+        private System.Windows.Forms.TextBox txttglkembali;
         private Atim_MoviesDataSet2 atim_MoviesDataSet2;
         private System.Windows.Forms.BindingSource tableTransaksiBindingSource;
         private Atim_MoviesDataSet2TableAdapters.Table_TransaksiTableAdapter table_TransaksiTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idTransaksiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idPelangganDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFilmDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tglSewaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn biayaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button cmdCopy;
         private System.Windows.Forms.Button button1;
+        private AtimDataSet2 atimDataSet2;
+        private System.Windows.Forms.BindingSource transaksiBindingSource;
+        private AtimDataSet2TableAdapters.TransaksiTableAdapter transaksiTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idtransaksiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPeminjamanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalhargaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tanggalsewaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tanggalkembaliDataGridViewTextBoxColumn;
+        private AtimDataSet4 atimDataSet4;
+        private System.Windows.Forms.BindingSource transaksiBindingSource1;
+        private AtimDataSet4TableAdapters.TransaksiTableAdapter transaksiTableAdapter1;
     }
 }
